@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="m-3 text-center" >
+        <button class="btn btn-dark" (click)="goToLogin()"> Add Products</button>
+    </div>
+    <table class="table table-bordered">
+<thead class="text-center">
+    <tr><th>
+        id
+    </th>
+    <th>
+       Title
+    </th>
+    <th>
+       Price
+    </th>
+  
+    <th>category</th>
+    <th>Image</th>
+    <th colspan="2">Action</th>
+</tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let dt of allData">
+        <td>{{dt.id}} </td>
+        <td>{{dt.title}} </td>
+        <td>{{dt.price}} </td>
+   
+        <td>{{dt.category}} </td>
+        <td><img [src]="dt.image" alt="img" width="70px"></td>
+        <td><button type="button" class="btn" (click)="onEdit(dt.id)">
+            <i class="fas fa-edit"></i>
+          </button></td>
+          <td><button type="button" class="
+            btn btn-danger">
+            <i class="fas fa-trash-alt" (click)="onDelete(dt)"></i> 
+          </button></td>
+    </tr>
+</tbody>
+    </table>
+</div>

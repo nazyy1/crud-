@@ -1,0 +1,82 @@
+<!-- <div class="container">
+    <div class="container">
+        <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+       
+          <input type="hidden" id="id" formControlName="id"  class="form-control"/>
+      
+          <label for="name">Name:</label>
+          <input type="text" id="name" formControlName="name" class="form-control" />
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" formControlName="email" class="form-control"/>
+      
+          <label for="phone">Website:</label>
+          <input type="text" id="website" formControlName="website" class="form-control" />
+      
+          <label for="username">Username:</label>
+          <input type="text" id="username" formControlName="username" class="form-control" />
+      <!-- <div>
+         <button type="submit" class="btn btn-info mt-3 "> Submit</button>
+      </div> -->
+          <!-- <button type="submit" class="btn btn-success mt-3 " >Update </button>
+        </form>
+      </div>
+      
+</div> -->
+
+<div class="container">
+  <h2>Edit Product</h2>
+
+  <!-- Product Form -->
+  <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="id">Product ID</label>
+      <input type="number" id="id" formControlName="id" class="form-control" placeholder="Enter Product ID" [readonly]="true" />
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" class="form-control" placeholder="Enter Product Title" />
+      <div *ngIf="myform.get('title')?.invalid && myform.get('title')?.touched" class="text-danger">
+        Title is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" formControlName="price" class="form-control" placeholder="Enter Product Price" />
+      <div *ngIf="myform.get('price')?.invalid && myform.get('price')?.touched" class="text-danger">
+        Price is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control" placeholder="Enter Product Description"></textarea>
+      <div *ngIf="myform.get('description')?.invalid && myform.get('description')?.touched" class="text-danger">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" id="category" formControlName="category" class="form-control" placeholder="Enter Product Category" />
+      <div *ngIf="myform.get('category')?.invalid && myform.get('category')?.touched" class="text-danger">
+        Category is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" id="image" formControlName="image" class="form-control" placeholder="Enter Product Image URL" />
+      <div *ngIf="myform.get('image')?.invalid && myform.get('image')?.touched" class="text-danger">
+        Image URL is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Update Product</button>
+  </form>
+
+</div>
+
